@@ -1,13 +1,144 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- =========================================================
+         Core Document Metadata
+         - Keep this minimal, correct, and stable.
+         - This is the "base HTML shell" for a Vite + React SPA.
+         ========================================================= -->
+
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/BuddyLogo.png" />
+
+    <!-- Mobile responsiveness (required) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buddy</title>
+
+    <!-- =========================================================
+         Title + Description
+         - Title shows in browser tabs + search results
+         - Description helps SEO snippets + link previews
+         ========================================================= -->
+    <title>Buddy | Smarter Ticket Buying With Friends</title>
+    <meta
+      name="description"
+      content="Buddy helps groups find tickets together match preferences, compare options, and plan the best night out."
+    />
+
+    <!-- =========================================================
+         Canonical URL
+         - Prevents duplicate content issues
+         - Replace with your final deployed URL
+         ========================================================= -->
+    <link rel="canonical" href="https://ticketbuddy.org/" />
+
+    <!-- =========================================================
+         Favicons / App Icons
+         - Fixes your current type (you had image/pmg)
+         - Best practice: include multiple sizes + formats
+         - If you only have one file right now, keep the PNG and
+           add more later.
+         ========================================================= -->
+    <link rel="icon" type="image/png" href="/BuddyLogo.png" />
+    <link rel="apple-touch-icon" href="/BuddyLogo.png" />
+
+    <!-- Optional: If/when you add real favicon files -->
+    <!--
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    -->
+
+    <!-- =========================================================
+         Theme Color (Mobile Browser UI color)
+         - Influences Android Chrome toolbar color
+         ========================================================= -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- =========================================================
+         Robots
+         - Controls how search engines index your site
+         - Use "index,follow" for production marketing websites
+         - Use "noindex,nofollow" for staging environments
+         ========================================================= -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- =========================================================
+         Open Graph (Facebook / LinkedIn / iMessage previews)
+         - These control the "rich link preview" appearance
+         ========================================================= -->
+    <meta property="og:site_name" content="Buddy" />
+    <meta property="og:title" content="Buddy | Smarter Ticket Buying With Friends" />
+    <meta
+      property="og:description"
+      content="Find tickets as a group. Compare options, match preferences, and plan the best night out—together."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ticketbuddy.org/" />
+
+    <!-- IMPORTANT:
+         Make a proper OG image in /public, ideally:
+         1200x630 (PNG/JPG), called og.png -->
+    <meta property="og:image" content="https://ticketbuddy.org/og.png" />
+    <meta property="og:image:alt" content="Buddy — Smarter ticket buying with friends" />
+
+    <!-- =========================================================
+         Twitter Card (X link previews)
+         ========================================================= -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Buddy | Smarter Ticket Buying With Friends" />
+    <meta
+      name="twitter:description"
+      content="Find tickets as a group. Compare options, match preferences, and plan the best night out—together."
+    />
+    <meta name="twitter:image" content="https://ticketbuddy.org/og.png" />
+
+    <!-- =========================================================
+         Performance: Preconnect (optional but helpful)
+         - Add these only when you actually load those domains
+         - Example: Google Fonts or your analytics provider
+         ========================================================= -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+
+    <!-- =========================================================
+         Structured Data (JSON-LD)
+         - Helps Google understand your brand and website
+         - Keep it accurate. Update as your product evolves.
+         ========================================================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Buddy",
+        "url": "https://ticketbuddy.org/",
+        "description": "Buddy helps groups find tickets together—match preferences, compare options, and plan the best night out.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://ticketbuddy.org/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
   </head>
+
   <body>
+    <!-- =========================================================
+         App Mount
+         - React will hydrate/render here
+         ========================================================= -->
     <div id="root"></div>
+
+    <!-- =========================================================
+         Vite Entry Point
+         ========================================================= -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- =========================================================
+         No-JS fallback (Optional)
+         - For accessibility + edge-cases
+         - In a SPA this is mostly informational
+         ========================================================= -->
+    <noscript>
+      Buddy requires JavaScript to run. Please enable JavaScript in your browser settings.
+    </noscript>
   </body>
 </html>
