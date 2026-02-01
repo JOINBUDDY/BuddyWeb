@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <!-- =========================================================
-         Core Document Metadata
+         Buddy — Base HTML Shell (Vite + React SPA)
          - Keep this minimal, correct, and stable.
-         - This is the "base HTML shell" for a Vite + React SPA.
+         - Primary job: deliver metadata + mount React.
          ========================================================= -->
 
     <meta charset="UTF-8" />
@@ -14,28 +14,26 @@
 
     <!-- =========================================================
          Title + Description
-         - Title shows in browser tabs + search results
-         - Description helps SEO snippets + link previews
+         - Title appears in browser tabs + search results
+         - Description powers SEO snippets + link previews
+         - Updated to reflect Buddy as a "group ticket copilot"
          ========================================================= -->
-    <title>Buddy | Smarter Ticket Buying With Friends</title>
+    <title>Buddy | The Ticket Buying Copilot</title>
     <meta
       name="description"
-      content="Buddy helps groups find tickets together match preferences, compare options, and plan the best night out."
+      content="Buddy helps choose tickets faster using preference matching, transparent comparisons, and a Harmony Score—so everyone agrees before checkout."
     />
 
     <!-- =========================================================
          Canonical URL
          - Prevents duplicate content issues
-         - Replace with your final deployed URL
          ========================================================= -->
     <link rel="canonical" href="https://ticketbuddy.org/" />
 
     <!-- =========================================================
          Favicons / App Icons
-         - Fixes your current type (you had image/pmg)
-         - Best practice: include multiple sizes + formats
-         - If you only have one file right now, keep the PNG and
-           add more later.
+         - Keep your existing PNGs for now
+         - Add more sizes/formats later as you brand polish
          ========================================================= -->
     <link rel="icon" type="image/png" href="/BuddyLogo.png" />
     <link rel="apple-touch-icon" href="/BuddyLogo.png" />
@@ -54,68 +52,73 @@
     <meta name="theme-color" content="#000000" />
 
     <!-- =========================================================
+         App / Browser Behavior Metadata (small polish)
+         ========================================================= -->
+    <meta name="application-name" content="Buddy" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- =========================================================
          Robots
          - Controls how search engines index your site
-         - Use "index,follow" for production marketing websites
-         - Use "noindex,nofollow" for staging environments
+         - Keep "index,follow" for production
+         - Switch to "noindex,nofollow" for staging
          ========================================================= -->
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index,follow" />
 
     <!-- =========================================================
          Open Graph (Facebook / LinkedIn / iMessage previews)
-         - These control the "rich link preview" appearance
+         - Updated copy to match Buddy's real value:
+           group consensus + preference matching + comparison
          ========================================================= -->
     <meta property="og:site_name" content="Buddy" />
-    <meta property="og:title" content="Buddy | Smarter Ticket Buying With Friends" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Buddy | The Ticket Buying Copilot" />
     <meta
       property="og:description"
-      content="Find tickets as a group. Compare options, match preferences, and plan the best night out—together."
+      content="Compare tickets across sites, match friend preferences, and pick the best option together—with Harmony Score."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ticketbuddy.org/" />
 
     <!-- IMPORTANT:
-         Make a proper OG image in /public, ideally:
-         1200x630 (PNG/JPG), called og.png -->
+         Make a proper OG image in /public
+         Recommended: 1200x630 PNG/JPG named og.png -->
     <meta property="og:image" content="https://ticketbuddy.org/og.png" />
-    <meta property="og:image:alt" content="Buddy — Smarter ticket buying with friends" />
+    <meta property="og:image:alt" content="Buddy — The Ticket Buying Copilot" />
 
     <!-- =========================================================
-         Twitter Card (X link previews)
+         Twitter / X Card Previews
          ========================================================= -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Buddy | Smarter Ticket Buying With Friends" />
+    <meta name="twitter:title" content="Buddy | The Ticket Buying Copilot" />
     <meta
       name="twitter:description"
-      content="Find tickets as a group. Compare options, match preferences, and plan the best night out—together."
+      content="Compare tickets across sites, match friend preferences, and pick the best option together with Harmony Score."
     />
     <meta name="twitter:image" content="https://ticketbuddy.org/og.png" />
 
     <!-- =========================================================
-         Performance: Preconnect (optional but helpful)
-         - Add these only when you actually load those domains
-         - Example: Google Fonts or your analytics provider
+         Performance: Preconnect (optional)
+         - Only enable once you actually use these domains
          ========================================================= -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
 
     <!-- =========================================================
          Structured Data (JSON-LD)
-         - Helps Google understand your brand and website
-         - Keep it accurate. Update as your product evolves.
+         - Updated to reflect Buddy as software (not just a website)
+         - More accurate than "WebSite + SearchAction" unless you
+           truly have a /search route meant for indexing
          ========================================================= -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@type": "SoftwareApplication",
         "name": "Buddy",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
         "url": "https://ticketbuddy.org/",
-        "description": "Buddy helps groups find tickets together—match preferences, compare options, and plan the best night out.",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://ticketbuddy.org/search?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "description": "Buddy helps groups choose tickets faster using preference matching, transparent comparisons, and a Harmony Score—so everyone agrees before checkout."
       }
     </script>
   </head>
@@ -123,7 +126,7 @@
   <body>
     <!-- =========================================================
          App Mount
-         - React will hydrate/render here
+         - React will render into this node
          ========================================================= -->
     <div id="root"></div>
 
@@ -133,9 +136,8 @@
     <script type="module" src="/src/main.tsx"></script>
 
     <!-- =========================================================
-         No-JS fallback (Optional)
-         - For accessibility + edge-cases
-         - In a SPA this is mostly informational
+         No-JS fallback (optional)
+         - Helpful for accessibility + edge cases
          ========================================================= -->
     <noscript>
       Buddy requires JavaScript to run. Please enable JavaScript in your browser settings.
