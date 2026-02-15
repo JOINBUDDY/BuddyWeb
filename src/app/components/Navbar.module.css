@@ -245,6 +245,7 @@
 
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* FIX: correct mobile viewport height */
 
   background: rgba(11,11,12,0.96);
 
@@ -289,6 +290,7 @@
   padding: 0 24px;
 
   height: 100%;
+  flex: 1; /* FIX: ensures extension card anchors properly */
 
   display: flex;
   flex-direction: column;
@@ -420,7 +422,7 @@
 
   backdrop-filter: blur(10px);
 
-  margin-bottom: 32px;
+  margin-bottom: calc(32px + env(safe-area-inset-bottom)); /* FIX: prevents clipping on iPhone */
 
   text-decoration: none;
 
@@ -439,6 +441,11 @@
   border: 1px solid rgba(255,255,255,0.12);
 
 }
+
+
+/* ============================= */
+/* REMAINING UNCHANGED */
+/* ============================= */
 
 .mobileCardLeft {
 
