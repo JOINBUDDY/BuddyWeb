@@ -1,0 +1,241 @@
+.footer {
+
+  margin-top: 260px;
+
+  width: 100%;
+
+  padding-bottom: 40px;
+
+}
+
+
+/* Chrome divider */
+
+.chromeLine {
+
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+
+  opacity: 0.7;
+
+}
+
+
+/* Main container */
+
+.inner {
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 80px 40px 60px 40px;
+
+}
+
+
+/* Grid layout */
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  column-gap: 80px;
+
+  row-gap: 32px;
+
+}
+
+
+/* Column */
+
+.column {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+}
+
+
+/* Headings */
+
+.heading {
+
+  font-size: 12px;
+
+  letter-spacing: 0.6px;
+
+  color: rgba(255,255,255,0.32);
+
+  text-transform: uppercase;
+
+}
+
+
+/* Links */
+
+.column a {
+
+  font-size: 14px;
+
+  color: rgba(255,255,255,0.62);
+
+  text-decoration: none;
+
+  transition: color 0.2s ease, transform 0.2s ease;
+
+}
+
+.column a:hover {
+
+  color: rgba(255,255,255,0.95);
+
+  transform: translateY(-1px);
+
+}
+
+
+/* Bottom row */
+
+.bottom {
+
+  margin-top: 80px;
+
+  padding: 0 40px;
+
+  max-width: 1200px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+/* Copyright */
+
+.copyright {
+
+  font-size: 15px;
+
+  color: rgba(255,255,255,0.55);
+
+  letter-spacing: 0.2px;
+
+}
+
+
+/* Icons */
+
+.icons {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+
+}
+
+
+.iconLink {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: rgba(255,255,255,0.55);
+
+  transition: color 0.2s ease, transform 0.2s ease;
+
+}
+
+
+.iconLink svg {
+
+  width: 20px;
+
+  height: 20px;
+
+}
+
+
+.iconLink:hover {
+
+  color: rgba(255,255,255,0.95);
+
+  transform: translateY(-1px);
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .inner {
+
+    padding: 60px 40px;
+
+  }
+
+  .grid {
+
+    grid-template-columns: repeat(2, 1fr);
+
+    column-gap: 60px;
+
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .inner {
+
+    padding: 50px 24px;
+
+  }
+
+  .grid {
+
+    grid-template-columns: 1fr;
+
+    row-gap: 24px;
+
+  }
+
+  .bottom {
+
+    padding: 0 24px;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+  }
+
+}

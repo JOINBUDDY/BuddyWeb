@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // ← ONLY ADDITION
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
 
   /*
   |--------------------------------------------------------------------------
-  | Icons (must exist directly in /public)
+  | Icons
   |--------------------------------------------------------------------------
   */
 
@@ -94,7 +95,7 @@ export const metadata: Metadata = {
 
   /*
   |--------------------------------------------------------------------------
-  | OpenGraph (Discord, iMessage, Slack, Facebook)
+  | OpenGraph
   |--------------------------------------------------------------------------
   */
 
@@ -102,7 +103,7 @@ export const metadata: Metadata = {
     title: "BUDDY — Ticket Buying Copilot",
 
     description:
-      "Find the best seats with BUDDY. Your copilot for discovering and evaluating tickets for individuals and groups on the sites you already use.",
+      "Find the best seats with BUDDY. Your copilot for discovering and evaluating tickets.",
 
     url: "https://ticketbuddy.org",
 
@@ -123,7 +124,7 @@ export const metadata: Metadata = {
 
   /*
   |--------------------------------------------------------------------------
-  | Twitter / X
+  | Twitter
   |--------------------------------------------------------------------------
   */
 
@@ -158,6 +159,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <Footer /> {/* ← ONLY ADDITION */}
       </body>
     </html>
   );
