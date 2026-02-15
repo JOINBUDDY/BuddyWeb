@@ -25,6 +25,9 @@ export default function Navbar() {
     useState(false);
 
 
+  /*
+    EXTENSION DETECTION
+  */
   useEffect(() => {
 
     const img = document.createElement("img");
@@ -49,6 +52,9 @@ export default function Navbar() {
   }, []);
 
 
+  /*
+    NAVBAR SCROLL EFFECT
+  */
   useEffect(() => {
 
     function handleScroll() {
@@ -91,6 +97,63 @@ export default function Navbar() {
   }, []);
 
 
+  /*
+    BODY SCROLL LOCK (CRITICAL FIX)
+  */
+  useEffect(() => {
+
+    if (!menuOpen) {
+
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+      document.body.style.touchAction = "";
+
+      return;
+    }
+
+    const scrollBarWidth =
+      window.innerWidth -
+      document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+
+    document.body.style.paddingRight =
+      `${scrollBarWidth}px`;
+
+    document.body.style.touchAction = "none";
+
+    return () => {
+
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+      document.body.style.touchAction = "";
+
+    };
+
+  }, [menuOpen]);
+
+
+  /*
+    ESC KEY CLOSE
+  */
+  useEffect(() => {
+
+    function handleKeyDown(e: KeyboardEvent) {
+
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+      }
+
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () =>
+      window.removeEventListener("keydown", handleKeyDown);
+
+  }, []);
+
+
   function getButtonText() {
 
     if (!checkedExtension)
@@ -111,9 +174,15 @@ export default function Navbar() {
   }
 
 
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
+
   return (
 
     <>
+      {/* NAVBAR */}
       <header
         className={`${styles.navbar}
         ${scrolled ? styles.scrolled : ""}`}
@@ -121,7 +190,12 @@ export default function Navbar() {
 
         <div className={styles.inner}>
 
-          <Link href="/" className={styles.logo}>
+          <Link
+            href="/"
+            className={styles.logo}
+            onClick={closeMenu}
+          >
+
             <Image
               src="/buddy.jpg"
               alt="Buddy"
@@ -130,6 +204,7 @@ export default function Navbar() {
               className={styles.logoImage}
               priority
             />
+
           </Link>
 
 
@@ -179,9 +254,10 @@ export default function Navbar() {
             <button
               className={styles.hamburger}
               onClick={() =>
-                setMenuOpen(!menuOpen)
+                setMenuOpen(prev => !prev)
               }
-              aria-label="Menu"
+              aria-label="Toggle Menu"
+              aria-expanded={menuOpen}
             >
 
               <div className={styles.hamburgerInner}>
@@ -199,6 +275,7 @@ export default function Navbar() {
       </header>
 
 
+      {/* MOBILE MENU */}
       <div
         className={`${styles.mobileMenu}
         ${menuOpen ? styles.mobileMenuOpen : ""}`}
@@ -210,7 +287,7 @@ export default function Navbar() {
 
             <Link
               href="/"
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className={styles.logo}
             >
 
@@ -226,8 +303,9 @@ export default function Navbar() {
 
 
             <button
-              onClick={() => setMenuOpen(false)}
+              onClick={closeMenu}
               className={styles.mobileClose}
+              aria-label="Close Menu"
             >
               ×
             </button>
@@ -237,19 +315,35 @@ export default function Navbar() {
 
           <div className={styles.mobileNav}>
 
-            <Link href="/product" className={styles.mobileLink}>
+            <Link
+              href="/product"
+              className={styles.mobileLink}
+              onClick={closeMenu}
+            >
               Product
             </Link>
 
-            <Link href="/how-it-works" className={styles.mobileLink}>
+            <Link
+              href="/how-it-works"
+              className={styles.mobileLink}
+              onClick={closeMenu}
+            >
               How it works
             </Link>
 
-            <Link href="/pricing" className={styles.mobileLink}>
+            <Link
+              href="/pricing"
+              className={styles.mobileLink}
+              onClick={closeMenu}
+            >
               Pricing
             </Link>
 
-            <Link href="/faq" className={styles.mobileLink}>
+            <Link
+              href="/faq"
+              className={styles.mobileLink}
+              onClick={closeMenu}
+            >
               FAQ
             </Link>
 
