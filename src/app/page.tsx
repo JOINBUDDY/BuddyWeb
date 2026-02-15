@@ -1,12 +1,7 @@
-import Navbar from "./components/Navbar";
-
 export default function Page() {
-
   return (
-    <>
-      <Navbar />
+    <main>
       <div style={{ height: "2000px" }} />
-    </>
+    </main>
   );
-
 }
